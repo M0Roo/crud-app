@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>online shop</title>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-sm navbar-light bg-warning ">
+        <div class="container">
+            <a class="navbar-brand fw-bold" onclick="showHome()" >Online shop <i
+                    class="fs-3 text-info fa-solid fa-feather-pointed"></i></a>
+            <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class=" collapse navbar-collapse" id="collapsibleNavId">
+                <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                    <li class="nav-item">
+                        <a onclick="showHome()" class="nav-link active" aria-current="page">Home <i
+                                class="fa-solid fa-house"></i>
+                            <span class="visually-hidden">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a onclick="showInput()" class="nav-link">Input <i class="fa-solid fa-keyboard"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a onclick="showProduct()" class="nav-link">Products <i
+                                class="fa-solid fa-cart-arrow-down"></i></a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <section id="home">
+        <div class="home">
+            <h1>welcome to our shop</h1>
+        </div>
+    </section>
+
+
+
+    <div id="input" class=" input d-none d-flex justify-content-center align-items-start">
+
+        <div class="w-100 container my-3">
+
+            <label for="proName">Product Name :</label>
+            <input oninput="validation(this)" class="form-control mb-4" type="text" id="proName"
+                placeholder="write Name here">
+            <p class="d-none fw-bold alert alert-danger">name is invalid</p>
+
+            <label for="proPrice">Product Price :</label>
+            <input oninput="validation(this)" class=" form-control mb-4" type="number" id="proPrice"
+                placeholder="write price here">
+            <p class="d-none  fw-bold alert alert-danger">price is invalid</p>
+
+            <label for="proCat">Product Category :</label>
+            <input list="prodCat" oninput="validation(this)" class=" form-control mb-4" type="text" id="proCat"
+                placeholder="write Category here">
+            <datalist id="prodCat">
+                <option value="Tv">Tv</option>
+                <option value="Mobile">Mobile</option>
+                <option value="Smart Watch">Smart Watch</option>
+                <option value="Earbuds">Earbuds</option>
+            </datalist>
+
+            <p class="d-none fw-bold alert alert-danger">category is invalid</p>
+
+
+
+            <label for="proDesc">Product Description :</label>
+            <textarea oninput="validation(this)" class=" form-control mb-4" id="proDesc"
+                placeholder="write Description Here"></textarea>
+            <p class="d-none fw-bold alert alert-danger">Description is invalid</p>
+
+            <label for="proimg">Product Image :</label>
+            <input oninput="validation(this)" class="form-control mb-4" type="file" id="proimg">
+            <p class="d-none fw-bold alert alert-danger">Image path is invalid</p>
+
+            <button onclick="saveItem()" type="button" class="btn btn-outline-warning fs-5 fw-bold" id="add">Add
+                Product</button>
+            <button onclick="update()" type="button" class="d-none btn btn-outline-warning fs-5 fw-bold"
+                id="update">Update</button>
+        </div>
+
+    </div>
+
+
+    <div id="product" class=" product d-none container position-relative">
+
+        <div class="d-sm-flex align-items-center justify-content-between ">
+            <h2 class="text-capitalize">your products</h2>
+            <span id="counter" class="text-warning">Total : 0</span>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <input type="search" class="form-control w-100 bg-warning-subtle my-4 mx-2" id="searchName"
+                placeholder='search for item by name' oninput="searchName(this.value)">
+                
+            </div>
+            
+            <div class="col-md-6">
+            <input type="search" class="form-control w-100 bg-warning-subtle my-4 mx-2" id="searchPrice"
+            placeholder='search for item by price' oninput="searchPrice(this.value)">
+
+            </div>
+        </div>
+
+        <div class="row gy-4" id="row">
+        </div>
+
+        <div id="warn" class="d-none bg-warning d-flex justify-content-center align-items-center">
+            <h3>back to input page to update this product</h3>
+        </div>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>
